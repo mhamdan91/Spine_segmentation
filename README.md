@@ -7,7 +7,7 @@ MobileNet_v2 as the encoder and and the decoder is the upsample block
 already implemented in TensorFlow Pix2pix module.
 
 ### Dataset assumptions 
-**We made the following assumptions about the provided dataset**
+**We make the following assumptions about the provided dataset**
 * *Names of images are aligned with names of masks; however, for generality we do check if this holds true.*
 * *Images are already normalized.*
 
