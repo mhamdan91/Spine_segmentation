@@ -1,7 +1,7 @@
 Segmentation of spine MRI slices
 ------------------------------------
 In this work we are building a segmentation network to segment
-images of spine. The built model is the u-net model [[ref]](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/) 
+images of spine. The built model is the u-net model [[ref]](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/){:target="_blank"}
 which is comprised of a an encoder network and decoder network. We use the pre-trained
 MobileNet_v2 as the encoder and and the decoder is the upsample block 
 already implemented in TensorFlow Pix2pix module.
