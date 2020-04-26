@@ -1,5 +1,5 @@
 # Rquirements/dependencies: 
-### To run this code, you need the following:
+### To run this code, you need the following packages:
     1- 1.1<=Tensorflow<2.0
     2- Keras
     3- Termcolor
