@@ -13,10 +13,10 @@ already implemented in TensorFlow Pix2pix module.
 
 ### Repo breakdown
     1- checkpoints folder: contains sample checkpoints and new checkpoints are stored here. 
-    2- data_files folder: contains the data files which are images and masks 
-    3- model folder: contrain the u-net model
-    4- utils: contrains a helper .py file for visualization and the data loader .py file
-    5- main.py : is a runnable python file that allows users to run train or visualize predictions of the u-net model 
+    2- data_files folder: contains the data files which are images and masks.
+    3- model folder: contrain the u-net model.
+    4- utils: contrains a helper .py file for visualization and the data loader .py file for loading/pre-processing data from disk
+    5- main.py : is a runnable python file that allows users to run train or visualize predictions of the u-net model.
     6- training.py: a callable python file invoked by run.py to run the training or visualization code.
 
 ### Process pipeline
