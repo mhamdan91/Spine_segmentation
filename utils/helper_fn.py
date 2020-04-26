@@ -15,7 +15,7 @@ def create_mask(pred_mask):
 # Helper function to display data
 def display(display_list):
     fig, (ax1,ax2,ax3) = plt.subplots(1,3, figsize=(15,5))
-    title = ['Input Image with Predicted Mask', 'True Mask', 'Predicted Mask']
+    title = ['Image with Predicted Mask Contour', 'True Mask', 'Predicted Mask']
     ax1.imshow(tf.keras.preprocessing.image.array_to_img(display_list[0]))
     ax1.set_title(title[0])
     ax1.axis('off')
