@@ -1,3 +1,13 @@
+Rquirements/dependencies: 
+To run this code, you need the following:
+1- 1.1<=Tensorflow<2.0
+2- Keras
+3- Termcolor
+4- matplotlib
+5- numpy
+6- sklearn
+------------------------------------
+
 Segmentation of spine MRI slices
 ------------------------------------
 In this work we are building a segmentation network to segment
