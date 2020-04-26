@@ -18,12 +18,14 @@ def display(display_list):
     title = ['Input Image with Predicted Mask', 'True Mask', 'Predicted Mask']
     ax1.imshow(tf.keras.preprocessing.image.array_to_img(display_list[0]))
     ax1.set_title(title[0])
+    ax1.axis('off')
     ax2.imshow(tf.keras.preprocessing.image.array_to_img(display_list[1]))
     ax2.set_title(title[1])
+    ax2.axis('off')
     ax3.imshow(tf.keras.preprocessing.image.array_to_img(display_list[2]))
     ax3.set_title(title[2])
     ax1.contour(tf.keras.preprocessing.image.array_to_img(display_list[2]), colors='r',linewidths=5,levels=[0.5])
-    plt.axis('off')
+    ax3.axis('off')
     plt.show()
     # plt.figure(figsize=(15, 5))
     # for i in range(len(display_list)):
