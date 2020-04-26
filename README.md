@@ -55,4 +55,4 @@ a provided checkpoint.
        
 ![Sample Prediction](sample_prediction.png)    
                        
-#### Muhammad Hamdan
+### Created by: Muhammad Hamdan	 
