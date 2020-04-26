@@ -39,7 +39,7 @@ a provided checkpoint.
     2. '-t', '--train_mode', default=0, type=int, help='0: Predict, 1: Train from a previous checkpoint, 2: Train from scratch -- default: 0'
     3. '-v', '--visualize', default=0, type=int, help='0: Visualize training samples, 1: visualize validation samples -- default: 0'
     4. '-e', '--training_epochs', default=2, type=int, help='-- default: 2'
-    5. '-k', '--ckpt_path', default='checkpoints'+sep+'pre_trained.h5', type=str, help='(Optional, provide path to checkpoints in case of '
+    5. '-k', '--ckpt_path', default='checkpoints\pre_trained.h5', type=str, help='(Optional, provide path to checkpoints in case of '
                             'train_mode = 0 or 1) -- default: checkpoints\pre_trained.h5'
     6. '-i', '--images_path', default='data_files\images', type=str, help='(Optional, provide path to input images in case of '
                         'training on a different dataset) -- default: data_files\images'
