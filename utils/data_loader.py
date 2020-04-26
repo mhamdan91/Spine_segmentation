@@ -17,11 +17,20 @@ This module handled loading and pre-processing the data
 ###############################################
 
 
-def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = 'data_files'+sep+'masks', images_path = 'data_files'+sep+'images'):
+def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, images_path = None):
 
     # Load images and masks from disk...
     ls_masks = os.listdir(masks_path)
     ls_images = os.listdir(images_path)
+	idx_img = []
+    idx_msk = []
+    # Ensure data is sorted - Windows reads sorted, but unix does not!
+    for i, mask in enumerate(ls_masks):
+        idx_msk.append(mask.split('.')[0])
+        idx_img.append(ls_images[i].split('.')[0])
+    idx_img.sort(key=int)
+    idx_msk.sort(key=int)
+    print(idx_msk)
     masks = []
     images = []
     matching = 0
