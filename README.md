@@ -20,7 +20,7 @@ already implemented in TensorFlow Pix2pix module.
     6- training.py: a callable python file invoked by run.py to run the training or visualization code.
 
 ### Process pipeline
-- User configure training/visualization settings using the run.py.
+- User passes training/visualization arguments using the main.py.
 - Sanity checks are performed on user input to ensure it is valid before running code.
 - Data is loaded from disk and masks and images names are checked if they're matching. Only matching elements are processed.
 matched/unmatched number of elements is printed to the screen.
