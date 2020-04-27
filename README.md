@@ -29,8 +29,8 @@ already implemented in TensorFlow Pix2pix module. **This code runs in eager mode
     3- model folder: contrain the u-net model.
     4- utils: contrains a helper .py file for visualization and the data loader .py file for loading/pre-processing data from disk
     5- requirements folder: contrains some dependencies to run the code.
-    6- main.py : is a runnable python file that allows users to run train or visualize predictions of the u-net model.
-    7- training.py: a callable python file invoked by run.py to run the training or visualization code.
+    6- main.py : is a runnable python file that allows users to train or visualize predictions of the u-net model.
+    7- training.py: a callable python file invoked by main.py to run the training or visualization code.
 
 ### Process pipeline
 - User passes training/visualization arguments using the main.py.
