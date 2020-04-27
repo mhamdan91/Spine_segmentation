@@ -40,9 +40,9 @@ def main():
     parser.add_argument('-k', '--ckpt_path', default='checkpoints'+sep+'pre_trained.h5', type=str, help='(Optional, provide path to checkpoints in case of '
                             'train_mode = 0 or 1) -- default: checkpoints'+sep+'pre_trained.h5')
     parser.add_argument('-i', '--images_path', default='data_files'+sep+'images', type=str, help='(Optional, provide path to input images in case of '
-                        'training on a different dataset) -- default: data_files'+sep+'images')
+                        'training on a different dataset - must be .png) -- default: data_files'+sep+'images')
     parser.add_argument('-m', '--masks_path', default='data_files'+sep+'masks', type=str, help='(Optional, provide path to input masks in case of '
-                        'training on a different dataset) -- default: data_files'+sep+'masks')
+                        'training on a different dataset - must be .npy) -- default: data_files'+sep+'masks')
     args = parser.parse_args()
     predictor(args.batch_size, args.train_mode, args.training_epochs,args.visualize, args.ckpt_path, args.images_path, args.masks_path)
 

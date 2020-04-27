@@ -22,22 +22,23 @@ def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, 
     # Load images and masks from disk...
     ls_masks = os.listdir(masks_path)
     ls_images = os.listdir(images_path)
-	idx_img = []
+    idx_img = []
     idx_msk = []
+
     # Ensure data is sorted - Windows reads sorted, but unix does not!
     for i, mask in enumerate(ls_masks):
         idx_msk.append(mask.split('.')[0])
         idx_img.append(ls_images[i].split('.')[0])
     idx_img.sort(key=int)
     idx_msk.sort(key=int)
-    print(idx_msk)
     masks = []
     images = []
     matching = 0
-    for i, mask in enumerate(ls_masks):
-        np_mask = np.load(os.path.join(masks_path,mask))
-        image_np = plt.imread(os.path.join(images_path,ls_images[i]))
-        if mask.split('.')[0] == ls_images[i].split('.')[0]:
+    # Read data in
+    for i, mask in enumerate(idx_msk):
+        np_mask = np.load(os.path.join(masks_path,mask+".npy"))
+        image_np = plt.imread(os.path.join(images_path,idx_img[i]+".png"))
+        if mask == idx_img[i]:
             matching +=1
             masks.append(np_mask)
             images.append(image_np)
@@ -46,8 +47,8 @@ def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, 
     unmatched = len(images) - matching
     print(colored('[MATCHED]:','green'), '{0:} elements of out {1:}'.format(matched, len(images)))
     print(colored('[UNMATCHED]:','red'), '{0:} elements out of {1:}'.format(unmatched, len(images)))
-
-
+    # width  = images[0].shape[0]
+    # height = images[0].shape[1]
 
 
     '''
@@ -85,10 +86,10 @@ def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, 
 
 
 
-    # Re-size input data to 128x128 to match decoder-encoder depth
+    # Ensure input image is acceptable for MobileNetV2
     def data_normalization(image, label):
-        image = tf.image.resize_images(image, size=(128, 128))
-        label = tf.image.resize_images(label, size=(128, 128))
+        image = tf.image.resize_images(image, size=(224, 224))
+        label = tf.image.resize_images(label, size=(224, 224))
         return image, label
 
 
@@ -100,7 +101,7 @@ def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, 
 
     validation_dataset = tf.data.Dataset.from_tensor_slices((X_valid, y_valid))
     validation_dataset = validation_dataset.map(data_normalization, num_parallel_calls=8)
-    validation_dataset = validation_dataset.batch(1)
+    validation_dataset = validation_dataset.batch(1) # batch set to 1 because dataset is small
     validation_dataset = validation_dataset.prefetch(1)
 
     return train_dataset, validation_dataset

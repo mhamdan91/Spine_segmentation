@@ -1,11 +1,13 @@
 # Rquirements/dependencies: 
 ### To run this code, you need the following packages:
-    1- 1.1<=Tensorflow<2.0
+    1- 1.13.1<=Tensorflow<2.0
     2- Keras
     3- Termcolor
     4- matplotlib
     5- numpy
-    6- sklearn
+    6- scikit-learn (sklearn)
+    7- Go to requirements folder and copy the tensorflow_examples folder and past it under tensorflow folder in your installation 
+    (tensorflow\tensorflow_examples)
 ------------------------------------
 
 Segmentation of spine MRI slices
@@ -36,7 +38,7 @@ already implemented in TensorFlow Pix2pix module. **This code runs in eager mode
 matched/unmatched number of elements is printed to the screen.
 - Data is preprocessed to make it compatible with the used model.
     - Input images channels are extended to 3 channels.
-    - Input images and masks are resized to 128x128.
+    - Input images and masks are resized to 224x224 to match MobileNetV2 acceptable input.
 - Data is split into training and validation sets.
 - DATASET API is used to build a data iterator to be fed to the model.
 - Model is compiled and summary is printed to the screen.
@@ -52,9 +54,9 @@ a provided checkpoint.
     5. '-k', '--ckpt_path', default='checkpoints\pre_trained.h5', type=str, help='(Optional, provide path to checkpoints in case of '
                             'train_mode = 0 or 1) -- default: checkpoints\pre_trained.h5'
     6. '-i', '--images_path', default='data_files\images', type=str, help='(Optional, provide path to input images in case of '
-                        'training on a different dataset) -- default: data_files\images'
+                        'training on a different dataset - must be .png) -- default: data_files\images'
     7. '-m', '--masks_path', default='data_files\masks', type=str, help='(Optional, provide path to input masks in case of '
-                        'training on a different dataset) -- default: data_files\masks'
+                        'training on a different dataset - must be .npy) -- default: data_files\masks'
                             
                             
                             
