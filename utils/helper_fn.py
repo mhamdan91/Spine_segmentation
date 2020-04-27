@@ -7,42 +7,64 @@ Helper functions to display/visualize data
 
 # Helper function to create mask
 def create_mask(pred_mask):
+    """
+
+    :param pred_mask: raw predicted mask from the model of size 1x224x224x3 --> 3 channels, one per label prediction
+    :return: processed mask of size 224x224 ---> passes on the maximum channel among the 3 channels.
+
+    """
+
     pred_mask = tf.argmax(pred_mask, axis=-1)
-    pred_mask = pred_mask[..., tf.newaxis]
+
     return pred_mask[0]
 
 
 # Helper function to display data
 def display(display_list):
+    """
+
+    :param display_list: list of arrays/images to display
+    :return: None
+
+    """
+
     fig, (ax1,ax2,ax3) = plt.subplots(1,3, figsize=(15,5))
     title = ['Image with Predicted Mask Contour', 'True Mask', 'Predicted Mask']
-    ax1.imshow(tf.keras.preprocessing.image.array_to_img(display_list[0]))
+    ax1.imshow(display_list[0])
     ax1.set_title(title[0])
     ax1.axis('off')
-    ax2.imshow(tf.keras.preprocessing.image.array_to_img(display_list[1]))
+    ax2.imshow(display_list[1])
     ax2.set_title(title[1])
     ax2.axis('off')
-    ax3.imshow(tf.keras.preprocessing.image.array_to_img(display_list[2]))
+    ax3.imshow(display_list[2])
     ax3.set_title(title[2])
-    ax1.contour(tf.keras.preprocessing.image.array_to_img(display_list[2]), colors='r',linewidths=5,levels=[0.5])
+    ax1.contour(display_list[2], colors='r',linewidths=5,levels=[0.5])
     ax3.axis('off')
     plt.show()
-    # plt.figure(figsize=(15, 5))
-    # for i in range(len(display_list)):
-    #     plt.subplot(1, len(display_list), i+1)
-    #     plt.title(title[i])
-    #     plt.imshow(tf.keras.preprocessing.image.array_to_img(display_list[i]))
-    #     plt.axis('off')
-    # plt.show()
 
 
 def show_predictions(dataset=None, model=None, num=1):
+    """
+
+    :param dataset: iterator dataset to produce images and masks for visualization
+    :param model: model needed to make predictions on provided data
+    :param num: number of elements to visualize
+    :return: None
+
+    """
+
     for image, mask in dataset.take(num):
         pred_mask = model(image)
-        display([image[0], mask[0], create_mask(pred_mask)])
-
+        display([np.squeeze(image[0]), np.squeeze(mask[0]), create_mask(pred_mask)])
 
 def visualize_training(results):
+    """
+
+    :param results: training history
+    :return: None
+
+    """
+
     plt.figure(figsize=(10, 5))
     plt.title("Learning curve")
     plt.plot(results.history["loss"], label="loss")

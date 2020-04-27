@@ -13,7 +13,19 @@ the training/prediction process
 '''
 
 def predictor(batch_size = 2, train_mode=0, epochs_= 2, visualize=0, ckpt_path= None, images_path=None, masks_path=None ):
+    """
 
+    :param batch_size: consumed batch size by the network at each training step
+    :param train_mode: determines training mode. If set to 0 then model is in prediction mode, if set to 1 then model will train from an existing
+    checkpoint, and if set to 2 the model will train from scratch.
+    :param epochs: number of forward and backward passes to train the model for.
+    :param visualize: determines which dataset to visualize. 0 for training dataset and 1 for validation.
+    :param checkpoint_path: path to existing checkpoint in case train_mode equals 0 or 1.
+    :param images_path: path to images to be used for training or prediction
+    :param masks_path:  path to ground truth masks to be used for training or prediction
+    :return: None
+
+    """
     # Do sanity checks before running the code
     if batch_size > 15 or batch_size<1: batch_size = 2
     if train_mode > 2 or train_mode<0: train_mode = 0

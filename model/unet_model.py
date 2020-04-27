@@ -37,6 +37,11 @@ up_stack = [
 
 # Define the u-net model
 def unet(output_channels):
+    """
+    :param output_channels: number of classes to classify pixels into
+    :return: a keras model
+    """
+
     # Input shape, takes an RGB image of size 128x128
     inputs = tf.keras.layers.Input(shape=[224, 224, 3])
     x = inputs

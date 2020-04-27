@@ -18,6 +18,17 @@ This module handled loading and pre-processing the data
 
 
 def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, images_path = None):
+    """
+
+    :param batch_size: consumed batch size by the network at each training step
+    :param buffer_size: number of items to buffer in the iterator
+    :param visualize: determines whether to visualize an example of an input image and mask
+    :param masks_path: path to images to be used for training or prediction
+    :param images_path: path to ground truth masks to be used for training or prediction
+    :return: two iterators , train_dataset and validation_dataset
+
+    """
+
 
     # Load images and masks from disk...
     ls_masks = os.listdir(masks_path)
