@@ -36,7 +36,7 @@ def train(batch_size=2, train_mode=2, epochs=2,visualize=0, checkpoint_path=None
     model.summary()
 
     callbacks = [
-        # EarlyStopping(patience=10, verbose=1),
+        EarlyStopping(patience=10, verbose=1),
         ModelCheckpoint('checkpoints'+sep+'pre_trained_1.h5', verbose=1, save_best_only=True, save_weights_only=True)
                 ]
 
