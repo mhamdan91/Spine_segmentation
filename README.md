@@ -37,7 +37,7 @@ already implemented in TensorFlow Pix2pix module. **This code runs in eager mode
 - Data is loaded from disk and masks and images names are checked if they're matching. Only matching elements are processed.
 matched/unmatched number of elements is printed to the screen.
 - Data is preprocessed to make it compatible with the used model.
-    - Input images channels are extended to 3 channels.
+    - Input image channels are extended to 3.
     - Input images and masks are resized to 224x224 to match MobileNetV2 acceptable input.
 - Data is split into training and validation sets.
 - DATASET API is used to build a data iterator to be fed to the model.
