@@ -6,7 +6,7 @@
     4- matplotlib
     5- numpy
     6- scikit-learn (sklearn)
-    7- Go to requirements folder and copy the tensorflow_examples folder and past it under tensorflow folder in your installation 
+    7- Go to requirements folder and copy the tensorflow_examples folder and paste it under tensorflow folder in your installation 
     (tensorflow\tensorflow_examples)
 ------------------------------------
 
