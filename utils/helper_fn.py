@@ -1,9 +1,19 @@
 from matplotlib import  pyplot as plt
 import tensorflow as tf
 import numpy as np
+import re
 '''
 Helper functions to display/visualize data
 '''
+
+# Helper function to read files in numerical order
+numbers = re.compile(r'(\d+)')
+def num_sort(value):
+    parts = numbers.split(value)
+    parts[1::2] = map(int, parts[1::2])
+
+    return parts
+
 
 # Helper function to create mask
 def create_mask(pred_mask):

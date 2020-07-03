@@ -5,6 +5,7 @@ from termcolor import colored
 from sklearn.model_selection import train_test_split
 import random
 import tensorflow as tf
+from helper_fn import *
 sep = os.sep
 
 '''
@@ -37,6 +38,15 @@ def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, 
     idx_msk = []
 
     # Ensure data is sorted - Windows reads sorted, but unix does not!
+    '''
+     This is the generic way to do -- rather than reading files and then converting to ints and spliting then sorting
+    for i, mask in enumerate(sorted(ls_masks), key= num_sort):
+        idx_msk.append(mask.split('.')[0])
+    
+    for i, img in enumerate(sorted(ls_images), key= num_sort):
+        idx_img.append(img.split('.')[0])
+    '''
+
     for i, mask in enumerate(ls_masks):
         idx_msk.append(mask.split('.')[0])
         idx_img.append(ls_images[i].split('.')[0])
