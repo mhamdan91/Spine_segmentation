@@ -66,7 +66,7 @@ def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, 
 
     matched = matching
     unmatched = len(images) - matching
-    print(colored('[MATCHED]:','green'), '{0:} elements of out {1:}'.format(matched, len(images)))
+    print(colored('[MATCHED]:','green'), '{0:} elements out of {1:}'.format(matched, len(images)))
     print(colored('[UNMATCHED]:','red'), '{0:} elements out of {1:}'.format(unmatched, len(images)))
     # width  = images[0].shape[0]
     # height = images[0].shape[1]

@@ -6,15 +6,15 @@
     4- matplotlib
     5- numpy
     6- scikit-learn (sklearn)
-    7- Go to requirements folder and copy the tensorflow_examples folder and past it under tensorflow folder in your installation 
+    7- Go to requirements folder and copy the tensorflow_examples folder and paste it under tensorflow folder in your installation 
     (tensorflow\tensorflow_examples)
 ------------------------------------
 
 Segmentation of spine MRI slices
 ------------------------------------
 In this work we are building a segmentation network to segment
-images of spine. The built model is the u-net model [[ref]](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/)
-which is comprised of a an encoder network and decoder network. We use the pre-trained
+images of spine. We utilize the u-net model [[ref]](https://lmb.informatik.uni-freiburg.de/people/ronneber/u-net/)
+which is comprised of an encoder network and a decoder network. We use the pre-trained
 MobileNet_v2 as the encoder and and the decoder is the upsample block 
 already implemented in TensorFlow Pix2pix module. **This code runs in eager mode Tensorflow**
 
@@ -26,11 +26,11 @@ already implemented in TensorFlow Pix2pix module. **This code runs in eager mode
 ### Repo breakdown
     1- checkpoints folder: contains sample checkpoints and new checkpoints are stored here. 
     2- data_files folder: contains the data files which are images and masks.
-    3- model folder: contrain the u-net model.
+    3- model folder: contrains the u-net model.
     4- utils: contrains a helper .py file for visualization and the data loader .py file for loading/pre-processing data from disk
     5- requirements folder: contrains some dependencies to run the code.
-    6- main.py : is a runnable python file that allows users to run train or visualize predictions of the u-net model.
-    7- training.py: a callable python file invoked by run.py to run the training or visualization code.
+    6- main.py : is a runnable python file that allows users to train or visualize predictions of the u-net model.
+    7- training.py: a callable python file invoked by main.py to run the training or visualization code.
 
 ### Process pipeline
 - User passes training/visualization arguments using the main.py.
@@ -38,7 +38,7 @@ already implemented in TensorFlow Pix2pix module. **This code runs in eager mode
 - Data is loaded from disk and masks and images names are checked if they're matching. Only matching elements are processed.
 matched/unmatched number of elements is printed to the screen.
 - Data is preprocessed to make it compatible with the used model.
-    - Input image channels are extended to 3.
+    - Input image channels are extended to 3 to match MobileNetV2 acceptable input.
     - Input images and masks are resized to 224x224 to match MobileNetV2 acceptable input.
 - Data is split into training and validation sets.
 - DATASET API is used to build a data iterator to be fed to the model.
