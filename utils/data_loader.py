@@ -39,7 +39,8 @@ def data_loader(batch_size=2, buffer_size=2, visualize=True, masks_path = None, 
 
     # Ensure data is sorted - Windows reads sorted, but unix does not!
     '''
-     This is the generic way to do -- rather than reading files and then converting to ints and spliting then sorting
+    # This is the generic way to do -- rather than reading files and then converting to ints and spliting then sorting
+    
     for i, mask in enumerate(sorted(ls_masks), key= num_sort):
         idx_msk.append(mask.split('.')[0])
     
